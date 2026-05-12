@@ -4,167 +4,297 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jacob++ | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<canvas id="matrix"></canvas>
+<!-- Falling leaves canvas -->
+<canvas id="leavesCanvas"></canvas>
+
+<!-- Chess board background pattern -->
+<div class="chess-bg"></div>
+
+<!-- Grain overlay -->
+<div class="grain"></div>
 
 <header class="hero">
-    <div class="overlay"></div>
-
     <nav>
-        <h1 class="logo">Jacob++</h1>
-
+        <h1 class="logo">Jacob<span class="logo-accent">++</span></h1>
         <ul>
             <li><a href="#about">O mnie</a></li>
             <li><a href="#skills">Umiejętności</a></li>
-            <li><a href="#projects">Technologie</a></li>
+            <li><a href="#interests">Zainteresowania</a></li>
             <li><a href="#contact">Kontakt</a></li>
         </ul>
+        <button class="nav-toggle" aria-label="menu">☰</button>
     </nav>
 
     <div class="hero-content">
-        <h2 class="glow">Student Informatyki</h2>
-
-        <p>
-            Pasjonat programowania, sztucznej inteligencji,
-            szachów i nowoczesnych technologii.
+        <div class="hero-badge">✦ Student Informatyki ✦</div>
+        <h2 class="hero-title">Jacob<span class="hero-accent">++</span></h2>
+        <p class="hero-sub">
+            Programista. Strateg. Miłośnik algorytmów<br>
+            i drewnianych figur szachowych.
         </p>
+        <div class="hero-cta">
+            <a href="#about" class="btn-primary">Poznaj mnie</a>
+            <a href="#skills" class="btn-outline">Umiejętności ↓</a>
+        </div>
+    </div>
 
-        <a href="#about" class="btn">Poznaj mnie</a>
+    <!-- Decorative chess pieces -->
+    <div class="floating-pieces">
+        <span class="piece piece-1">♚</span>
+        <span class="piece piece-2">♛</span>
+        <span class="piece piece-3">♜</span>
+        <span class="piece piece-4">♞</span>
+        <span class="piece piece-5">♝</span>
+        <span class="piece piece-6">♟</span>
+    </div>
+
+    <div class="hero-scroll-hint">
+        <span>Przewiń</span>
+        <div class="scroll-line"></div>
     </div>
 </header>
 
+<!-- Divider -->
+<div class="section-divider">
+    <div class="divider-chess">
+        <span>♙</span><span>♗</span><span>♖</span><span>♕</span><span>♔</span><span>♖</span><span>♗</span><span>♙</span>
+    </div>
+</div>
+
 <section id="about" class="section">
-    <h2>O mnie</h2>
+    <div class="section-inner">
+        <div class="section-label">— 01 / O mnie</div>
+        <h2 class="section-title">Kim jestem?</h2>
 
-    <div class="card">
-        <p>
-            Nazywam się Jacob i studiuję informatykę.
-            Interesuję się tworzeniem aplikacji,
-            algorytmiką, AI oraz nowoczesnymi technologiami.
-        </p>
+        <div class="about-grid">
+            <div class="about-text card">
+                <p class="lead">
+                    Nazywam się <strong>Jacob</strong> i studiuję informatykę.
+                    Łączę precyzję programisty z myśleniem stratega —
+                    każdy problem to dla mnie partia szachów,
+                    którą można rozegrać na dziesiątki sposobów.
+                </p>
+                <p>
+                    Fascynuje mnie to, gdzie kończy się logika maszyny
+                    a zaczyna kreatywność człowieka. Tworzę oprogramowanie,
+                    które nie tylko działa — ale myśli.
+                </p>
+                <p>
+                    Poza kodem znajdziesz mnie przy szachownicy, analizując
+                    otwarcia, lub w świecie AI, gdzie kształtuję modele
+                    uczące się jak szachowe endgame: krok po kroku,
+                    z nieubłaganą logiką.
+                </p>
+                <div class="about-langs">
+                    <span>C++</span><span>Python</span><span>Java</span>
+                    <span>R</span><span>C</span><span>MATLAB</span>
+                </div>
+            </div>
 
-        <p>
-            Programuję w językach:
-            C++, Python, Java, R, C oraz MATLAB.
-        </p>
-
-        <p>
-            Uwielbiam klimat cyberpunk/matrix oraz analizę strategiczną,
-            dlatego szachy są jedną z moich największych pasji.
-        </p>
+            <div class="about-board">
+                <div class="mini-board">
+                    <!-- 8x8 decorative chess board -->
+                    <div id="miniBoard"></div>
+                </div>
+                <p class="board-caption">♟ Pozycja po 1.e4 e5 — klasyczne otwarcie</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<section id="skills" class="section">
-    <h2>Umiejętności</h2>
+<section id="skills" class="section section-dark">
+    <div class="section-inner">
+        <div class="section-label">— 02 / Umiejętności</div>
+        <h2 class="section-title">Arsenał narzędzi</h2>
+        <p class="section-desc">
+            Tak jak szachista zna siłę każdej figury,
+            znam możliwości i ograniczenia każdego języka.
+        </p>
 
-    <div class="skills-grid">
+        <div class="skills-grid">
 
-        <div class="skill-card">
-            <h3>C++</h3>
-            <div class="bar">
-                <div class="progress cpp"></div>
+            <div class="skill-card" data-level="90">
+                <div class="skill-header">
+                    <span class="skill-icon">⚔️</span>
+                    <h3>C++</h3>
+                    <span class="skill-pct">90%</span>
+                </div>
+                <div class="skill-desc">Główna broń — systemy, algorytmy, wydajność.</div>
+                <div class="bar"><div class="progress cpp"></div></div>
             </div>
-        </div>
 
-        <div class="skill-card">
-            <h3>Python</h3>
-            <div class="bar">
-                <div class="progress python"></div>
+            <div class="skill-card" data-level="85">
+                <div class="skill-header">
+                    <span class="skill-icon">🐍</span>
+                    <h3>Python</h3>
+                    <span class="skill-pct">85%</span>
+                </div>
+                <div class="skill-desc">AI, data science i automatyzacja w jednym.</div>
+                <div class="bar"><div class="progress python"></div></div>
             </div>
-        </div>
 
-        <div class="skill-card">
-            <h3>Java</h3>
-            <div class="bar">
-                <div class="progress java"></div>
+            <div class="skill-card" data-level="75">
+                <div class="skill-header">
+                    <span class="skill-icon">☕</span>
+                    <h3>Java</h3>
+                    <span class="skill-pct">75%</span>
+                </div>
+                <div class="skill-desc">Solidne fundamenty, architektura i OOP.</div>
+                <div class="bar"><div class="progress java"></div></div>
             </div>
-        </div>
 
-        <div class="skill-card">
-            <h3>R</h3>
-            <div class="bar">
-                <div class="progress r"></div>
+            <div class="skill-card" data-level="70">
+                <div class="skill-header">
+                    <span class="skill-icon">📊</span>
+                    <h3>R</h3>
+                    <span class="skill-pct">70%</span>
+                </div>
+                <div class="skill-desc">Statystyka i wizualizacja danych w nauce.</div>
+                <div class="bar"><div class="progress r"></div></div>
             </div>
-        </div>
 
-        <div class="skill-card">
-            <h3>MATLAB</h3>
-            <div class="bar">
-                <div class="progress matlab"></div>
+            <div class="skill-card" data-level="65">
+                <div class="skill-header">
+                    <span class="skill-icon">🔬</span>
+                    <h3>MATLAB</h3>
+                    <span class="skill-pct">65%</span>
+                </div>
+                <div class="skill-desc">Obliczenia numeryczne i symulacje inżynierskie.</div>
+                <div class="bar"><div class="progress matlab"></div></div>
             </div>
-        </div>
 
-        <div class="skill-card">
-            <h3>AI</h3>
-            <div class="bar">
-                <div class="progress ai"></div>
+            <div class="skill-card" data-level="80">
+                <div class="skill-header">
+                    <span class="skill-icon">🧠</span>
+                    <h3>AI / ML</h3>
+                    <span class="skill-pct">80%</span>
+                </div>
+                <div class="skill-desc">Sieci neuronowe, modele językowe, automatyzacja.</div>
+                <div class="bar"><div class="progress ai"></div></div>
             </div>
-        </div>
 
+        </div>
     </div>
 </section>
 
-<section id="projects" class="section">
-    <h2>Technologie i zainteresowania</h2>
+<section id="interests" class="section">
+    <div class="section-inner">
+        <div class="section-label">— 03 / Zainteresowania</div>
+        <h2 class="section-title">Moje światy</h2>
 
-    <div class="projects-grid">
+        <div class="interests-grid">
 
-        <div class="project-card">
-            <h3>♟ Szachy</h3>
-            <p>
-                Strategia, analiza pozycji i rozwój logicznego myślenia.
-            </p>
+            <div class="interest-card card-chess">
+                <div class="int-icon">♚</div>
+                <h3>Szachy</h3>
+                <p>
+                    Szachy to dla mnie więcej niż gra.
+                    To nauka myślenia kilka kroków naprzód,
+                    zarządzania czasem pod presją i akceptacji
+                    własnych błędów. Każda partia — nowe lekcje.
+                </p>
+                <div class="int-tag">Strategia · Analiza · Dyscyplina</div>
+            </div>
+
+            <div class="interest-card card-ai">
+                <div class="int-icon">🤖</div>
+                <h3>Sztuczna Inteligencja</h3>
+                <p>
+                    Fascynuje mnie moment, gdy maszyna zaczyna
+                    "rozumieć". Śledzę najnowsze modele językowe,
+                    buduję własne eksperymenty i wierzę,
+                    że AI zmieni wszystko — a chcę być tego częścią.
+                </p>
+                <div class="int-tag">ML · LLM · Automatyzacja</div>
+            </div>
+
+            <div class="interest-card card-code">
+                <div class="int-icon">💻</div>
+                <h3>Open Source & GitHub</h3>
+                <p>
+                    Wyznaję filozofię otwartego kodu.
+                    Buduję projekty, uczę się od innych
+                    i wierzę, że najlepszy software tworzony jest
+                    wspólnie — jak partia szachów w analizie po meczu.
+                </p>
+                <div class="int-tag">Git · Projekty · Współpraca</div>
+            </div>
+
+            <div class="interest-card card-algo">
+                <div class="int-icon">🌲</div>
+                <h3>Algorytmika</h3>
+                <p>
+                    Piękno algorytmu tkwi w jego prostocie.
+                    Poszukuję optymalnych rozwiązań tak samo
+                    jak szachista szuka najlepszego ruchu —
+                    z cierpliwością i matematyczną elegancją.
+                </p>
+                <div class="int-tag">Struktury danych · Złożoność · Elegancja</div>
+            </div>
+
         </div>
-
-        <div class="project-card">
-            <h3>🤖 AI</h3>
-            <p>
-                Machine Learning, modele językowe oraz automatyzacja.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h3>💻 GitHub</h3>
-            <p>
-                Rozwój projektów, version control i nowoczesny workflow.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h3>🟢 Matrix Style</h3>
-            <p>
-                Cyberpunkowy klimat i futurystyczne interfejsy.
-            </p>
-        </div>
-
     </div>
 </section>
 
-<section class="chess-section">
-    <h2>Szachowy Cytat</h2>
-
-    <blockquote>
-        "Szachy są gimnastyką umysłu."
-    </blockquote>
-
-    <p>— Blaise Pascal</p>
+<!-- Chess quote section -->
+<section class="quote-section">
+    <div class="quote-wood">
+        <div class="quote-pieces-row">
+            <span>♜</span><span>♞</span><span>♝</span><span>♛</span><span>♚</span><span>♝</span><span>♞</span><span>♜</span>
+        </div>
+        <blockquote class="big-quote">
+            <span class="quote-mark">"</span>
+            Szachy są gimnastyką umysłu —
+            a dobry kod jest jego architekturą.
+            <span class="quote-mark">"</span>
+        </blockquote>
+        <cite>— Jacob++, inspirowany Blaise Pascalem</cite>
+        <div class="quote-pieces-row">
+            <span>♟</span><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span>♟</span><span>♟</span>
+        </div>
+    </div>
 </section>
 
-<section id="contact" class="section">
-    <h2>Kontakt</h2>
+<section id="contact" class="section section-dark">
+    <div class="section-inner">
+        <div class="section-label">— 04 / Kontakt</div>
+        <h2 class="section-title">Zagrajmy partię</h2>
+        <p class="section-desc">
+            Masz projekt, pytanie albo po prostu chcesz zagrać w szachy online?
+            Napisz — zawsze odpowiem.
+        </p>
 
-    <div class="card">
-        <p>Email: jacobplusplus@example.com</p>
-        <p>GitHub: github.com/JacobPlusPlus</p>
+        <div class="contact-grid">
+            <a href="mailto:jacobplusplus@example.com" class="contact-card">
+                <span class="contact-icon">✉</span>
+                <div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-val">jacobplusplus@example.com</div>
+                </div>
+            </a>
+            <a href="https://github.com/JacobPlusPlus" target="_blank" class="contact-card">
+                <span class="contact-icon">⌨</span>
+                <div>
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-val">github.com/JacobPlusPlus</div>
+                </div>
+            </a>
+        </div>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 Jacob++ | Matrix Portfolio</p>
+    <div class="footer-inner">
+        <div class="footer-logo">Jacob<span>++</span></div>
+        <p>© 2026 Jacob++ · Crafted with code & chess strategy</p>
+        <div class="footer-pieces">♔ ♕ ♖ ♗ ♘ ♙</div>
+    </div>
 </footer>
 
 <script src="script.js"></script>
