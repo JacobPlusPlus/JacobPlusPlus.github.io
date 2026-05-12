@@ -3,18 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moje Portfolio</title>
+    <title>Jacob++ | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Moje Portfolio</h1>
+<canvas id="matrix"></canvas>
 
-    <script src="script.js"></script>
+<header class="hero">
+    <div class="overlay"></div>
 
-    <section>
+    <nav>
+        <h1 class="logo">Jacob++</h1>
+
+        <ul>
+            <li><a href="#about">O mnie</a></li>
+            <li><a href="#skills">Umiejętności</a></li>
+            <li><a href="#projects">Technologie</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-content">
+        <h2 class="glow">Student Informatyki</h2>
+
+        <p>
+            Pasjonat programowania, sztucznej inteligencji,
+            szachów i nowoczesnych technologii.
+        </p>
+
+        <a href="#about" class="btn">Poznaj mnie</a>
+    </div>
+</header>
+
+<section id="about" class="section">
     <h2>O mnie</h2>
-    <p>Jestem początkującym programistą.</p>
+
+    <div class="card">
+        <p>
+            Nazywam się Jacob i studiuję informatykę.
+            Interesuję się tworzeniem aplikacji,
+            algorytmiką, AI oraz nowoczesnymi technologiami.
+        </p>
+
+        <p>
+            Programuję w językach:
+            C++, Python, Java, R, C oraz MATLAB.
+        </p>
+
+        <p>
+            Uwielbiam klimat cyberpunk/matrix oraz analizę strategiczną,
+            dlatego szachy są jedną z moich największych pasji.
+        </p>
+    </div>
 </section>
+
+<section id="skills" class="section">
+    <h2>Umiejętności</h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <h3>C++</h3>
+            <div class="bar">
+                <div class="progress cpp"></div>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>Python</h3>
+            <div class="bar">
+                <div class="progress python"></div>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>Java</h3>
+            <div class="bar">
+                <div class="progress java"></div>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>R</h3>
+            <div class="bar">
+                <div class="progress r"></div>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>MATLAB</h3>
+            <div class="bar">
+                <div class="progress matlab"></div>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>AI</h3>
+            <div class="bar">
+                <div class="progress ai"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <h2>Technologie i zainteresowania</h2>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <h3>♟ Szachy</h3>
+            <p>
+                Strategia, analiza pozycji i rozwój logicznego myślenia.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>🤖 AI</h3>
+            <p>
+                Machine Learning, modele językowe oraz automatyzacja.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>💻 GitHub</h3>
+            <p>
+                Rozwój projektów, version control i nowoczesny workflow.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>🟢 Matrix Style</h3>
+            <p>
+                Cyberpunkowy klimat i futurystyczne interfejsy.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="chess-section">
+    <h2>Szachowy Cytat</h2>
+
+    <blockquote>
+        "Szachy są gimnastyką umysłu."
+    </blockquote>
+
+    <p>— Blaise Pascal</p>
+</section>
+
+<section id="contact" class="section">
+    <h2>Kontakt</h2>
+
+    <div class="card">
+        <p>Email: jacobplusplus@example.com</p>
+        <p>GitHub: github.com/JacobPlusPlus</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Jacob++ | Matrix Portfolio</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
